@@ -12,12 +12,17 @@ spring:
           predicates:
             - Path=/orders/**
 
+        - id: security-service
+          uri: lb://AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/auth/**
+
   application:
     name: APP-GATEWAY
 
 eureka:
   client:
     service-url:
-      defaultZone : http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8083

@@ -21,10 +21,13 @@ public class User {
     private String username;
 
     @Email
+    @Column(unique = true)
     @NotNull(message = "Email is mandatory")
     private String email;
 
     @NotBlank(message = "Email is mandatory")
     private String password;
+
+    private String roles;
 
 }

@@ -6,11 +6,15 @@ spring:
           uri: lb://COMMAND-SERVICE
           predicates:
             - Path=/commands/**
+          filters:
+            - AuthFilter
 
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/orders/**
+          filters:
+            - AuthFilter
 
         - id: security-service
           uri: lb://AUTHENTICATION-SERVICE
